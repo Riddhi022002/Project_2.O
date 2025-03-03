@@ -1,0 +1,43 @@
+.car-wash-card {
+    width: 100%;
+    max-width: 350px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-wash-card:hover {
+    transform: scale(1.05);
+}
+
+.car-wash-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.car-wash-info {
+    padding: 15px;
+}
+
+.car-wash-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.car-wash-location {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.car-wash-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+}
