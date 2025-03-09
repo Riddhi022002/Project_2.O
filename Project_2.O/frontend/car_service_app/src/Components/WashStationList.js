@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CarWashCard from "./CardViews";
 import "../StyleSheets/washstationlist.css";
 
@@ -46,10 +47,14 @@ const carWashStations = [
 ];
 
 const CarWashList = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="car-wash-list">
             {carWashStations.map((station) => (
-                <CarWashCard key={station.id} {...station} />
+                 <div key={station.id} onClick={() => navigate(`/station/${station.id}`)}>
+                    <CarWashCard {...station} />
+                </div>
             ))}
         </div>
     );

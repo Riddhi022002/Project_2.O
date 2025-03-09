@@ -1,0 +1,39 @@
+.car-wash-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-wash-details img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.car-wash-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.car-wash-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.car-wash-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.car-wash-info p strong {
+    color: #000;
+}
