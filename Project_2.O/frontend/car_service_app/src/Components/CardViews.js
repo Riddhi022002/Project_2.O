@@ -1,8 +1,5 @@
 import React from "react";
-import "../StyleSheets/cardviews,css";
-import React from "react";
-import PropTypes from "prop-types";
-
+import "../StyleSheets/cardviews.css";
 
 const CarWashCard = ({ image, name, location, rating, time }) => {
     return (

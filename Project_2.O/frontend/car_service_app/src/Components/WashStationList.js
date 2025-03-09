@@ -5,7 +5,7 @@ import "../StyleSheets/washstationlist.css";
 const carWashStations = [
     {
         id: 1,
-        image: "https://source.unsplash.com/400x300/?carwash",
+        image: "/assets/washingcarstation.jpg",
         name: "Shiny Auto Spa",
         location: "Mapusa, Goa",
         rating: "4.5",
@@ -13,7 +13,7 @@ const carWashStations = [
     },
     {
         id: 2,
-        image: "https://source.unsplash.com/400x300/?car-service",
+        image: "/assets/washingcarstation.jpg",
         name: "Express Car Care",
         location: "Panjim, Goa",
         rating: "4.7",
@@ -21,10 +21,26 @@ const carWashStations = [
     },
     {
         id: 3,
-        image: "https://source.unsplash.com/400x300/?car-cleaning",
+        image: "/assets/washingcarstation.jpg",
         name: "Speedy Wash Hub",
         location: "Margao, Goa",
         rating: "4.2",
+        time: "40-50"
+    },
+    {
+        id: 3,
+        image: "/assets/washingcarstation.jpg",
+        name: "Assonora Car Wash",
+        location: "Mapusa, Goa",
+        rating: "3.7",
+        time: "40-50"
+    },
+    {
+        id: 3,
+        image: "/assets/washingcarstation.jpg",
+        name: "Shree Sai Car Washing Center",
+        location: "Bicholim, Goa",
+        rating: "4.0",
         time: "40-50"
     }
 ];
