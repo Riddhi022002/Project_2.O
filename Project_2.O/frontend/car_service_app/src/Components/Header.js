@@ -17,18 +17,21 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="location" onClick={handleLocationChange}>
-                <span className="location-icon">📍</span>
-                <span className="location-text">{location}</span>
-                <span className="dropdown-icon">▼</span>
+            {/* Fixed Top Section */}
+            <div className="header-top">
+                <div className="location" onClick={handleLocationChange}>
+                    <span className="location-icon">📍</span>
+                    <span className="location-text">{location}</span>
+                    <span className="dropdown-icon">▼</span>
+                </div>
+                <div className="profile-icon">👤</div>
             </div>
 
+            {/* Search Bar Below */}
             <div className="search-bar">
                 <input type="text" placeholder="Search for 'Car Wash'" />
                 <button className="voice-search" onClick={handleVoiceSearch}>🎤</button>
             </div>
-
-            <div className="profile-icon">👤</div>
         </header>
     );
 };

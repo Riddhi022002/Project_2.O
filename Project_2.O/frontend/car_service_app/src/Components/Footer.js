@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Brand or Logo 
+        {/* Brand or Logo */}
         <div className="footer-brand">
           <h2>CarServiceApp</h2>
-        </div>*/}
+        </div>
 
         {/* Navigation Links */}
         <ul className="footer-links">

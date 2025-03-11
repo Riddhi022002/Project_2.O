@@ -1,7 +1,45 @@
+/* Base styles for mobile devices */
 .car-wash-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    gap: 20px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    gap: 15px; /* Reduced spacing for better mobile fit */
+    padding: 15px;
+    margin-top: 20px; /* Smaller margin for mobile */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+}
+
+/* Hide the scrollbar but allow scrolling */
+.car-wash-list::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari */
+}
+
+.car-wash-list > div {
+    flex: 0 0 80%; /* Ensures each card takes 80% of the screen width on mobile */
+    max-width: 350px; /* Prevents extra-wide cards */
+    min-width: 250px; /* Ensures minimum width for readability */
+    cursor: pointer;
+}
+
+/* Medium Devices (Tablets) */
+@media (min-width: 768px) {
+    .car-wash-list {
+        gap: 20px;
+        margin-top: 40px;
+    }
+    
+    .car-wash-list > div {
+        flex: 0 0 45%; /* Allows two cards per row on medium screens */
+    }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1024px) {
+    .car-wash-list {
+        justify-content: center; /* Center align for better UI */
+    }
+
+    .car-wash-list > div {
+        flex: 0 0 30%; /* Allows three cards per row on large screens */
+    }
 }

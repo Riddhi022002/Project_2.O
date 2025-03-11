@@ -29,7 +29,7 @@ const carWashStations = [
         time: "40-50"
     },
     {
-        id: 3,
+        id: 4,
         image: "/assets/washingcarstation.jpg",
         name: "Assonora Car Wash",
         location: "Mapusa, Goa",
@@ -37,7 +37,7 @@ const carWashStations = [
         time: "40-50"
     },
     {
-        id: 3,
+        id: 5,
         image: "/assets/washingcarstation.jpg",
         name: "Shree Sai Car Washing Center",
         location: "Bicholim, Goa",
@@ -52,7 +52,7 @@ const CarWashList = () => {
     return (
         <div className="car-wash-list">
             {carWashStations.map((station) => (
-                 <div key={station.id} onClick={() => navigate(`/station/${station.id}`)}>
+                <div key={station.id} onClick={() => navigate(`/station/${station.id}`)}>
                     <CarWashCard {...station} />
                 </div>
             ))}
