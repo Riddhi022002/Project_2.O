@@ -1,39 +1,62 @@
-.car-wash-details {
+.car-wash-container {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    max-width: 800px;
-    margin: 50px auto;
+    width: 80%;
+    margin: 40px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section */
+.car-wash-left {
+    flex: 1;
+    background: #2c3e50;  /* Darker shade */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.car-wash-details img {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
+.car-wash-left img {
+    width: 80%;
+    border-radius: 8px;
 }
 
-.car-wash-info {
+/* Right Section */
+.car-wash-right {
+    flex: 1.5;
+    background: #f8f9fa;  /* Lighter shade */
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.car-wash-info h2 {
+.car-wash-right h2 {
     font-size: 24px;
     color: #333;
-    margin-bottom: 15px;
 }
 
-.car-wash-info p {
+.car-wash-right p {
     font-size: 16px;
     color: #555;
-    margin-bottom: 8px;
+    margin: 8px 0;
 }
 
-.car-wash-info p strong {
-    color: #000;
+/* Book Service Button */
+.book-service-btn {
+    background: #e67e22; /* Orange shade */
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    align-self: flex-start;
+    transition: background 0.3s;
+}
+
+.book-service-btn:hover {
+    background: #d35400; /* Darker Orange */
 }

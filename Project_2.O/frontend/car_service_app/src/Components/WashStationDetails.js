@@ -21,7 +21,6 @@ const carWashStations = [
         rating: "4.7",
         time: "25-35 minutes"
     }
-    // Add more if needed
 ];
 
 const CarWashDetails = () => {
@@ -33,14 +32,20 @@ const CarWashDetails = () => {
     }
 
     return (
-        <div className="car-wash-details">
-            <img src={station.image} alt={station.name} />
-            <div className="car-wash-info">
+        <div className="car-wash-container">
+            {/* Left Section */}
+            <div className="car-wash-left">
+                <img src={station.image} alt={station.name} />
+            </div>
+
+            {/* Right Section */}
+            <div className="car-wash-right">
                 <h2>{station.name}</h2>
                 <p><strong>Address:</strong> {station.location}</p>
                 <p><strong>Services:</strong> {station.services}</p>
                 <p><strong>Rating:</strong> {station.rating} ⭐</p>
                 <p><strong>Estimated Time:</strong> {station.time}</p>
+                <button className="book-service-btn">Book Service</button>
             </div>
         </div>
     );
