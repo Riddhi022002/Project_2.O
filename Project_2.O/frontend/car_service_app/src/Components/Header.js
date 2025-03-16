@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "../StyleSheets/header.css";
 
 const Header = () => {
@@ -24,15 +25,16 @@ const Header = () => {
                     <span className="location-text">{location}</span>
                     <span className="dropdown-icon">▼</span>
                 </div>
+                
                 <div className="profile-icon">👤</div>
             </div>
 
             {/* Search Bar Below */}
-            <div className="search-bar">
+            {/* <div className="search-bar">
                 <input type="text" placeholder="Search for 'Car Wash'" />
                 <button className="voice-search" onClick={handleVoiceSearch}>🎤</button>
-            </div>
-        </header>
+            </div> */}
+        </header> 
     );
 };
 

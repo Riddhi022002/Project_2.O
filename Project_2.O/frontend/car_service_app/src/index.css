@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(241, 233, 202);
 }
 
 code {
@@ -18,11 +19,11 @@ code {
 }
 
 footer {
-  background-color: #000; /* Adjust as needed */
+  background-color: rgb(240, 240, 245); /* Adjust as needed */
   color: white;
   text-align: center;
   padding: 10px 0;
-  position: fixed;
+  
   width: 100%;
   bottom: 0;
 }

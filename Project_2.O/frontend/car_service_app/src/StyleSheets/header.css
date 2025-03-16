@@ -8,10 +8,10 @@
 
 /* Header Container */
 .header {
-    background-color: #fff;
+    background-color: orange;
     padding: 10px 20px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); */
+    /* position: sticky; */
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -60,7 +60,7 @@
     background-color: #f1f1f1;
     border-radius: 25px;
     padding: 5px 10px;
-    margin: 20px auto 0; /* Pushes it below the header */
+    margin: 0px auto 0; /* Pushes it below the header */
 }
 
 .search-bar input {

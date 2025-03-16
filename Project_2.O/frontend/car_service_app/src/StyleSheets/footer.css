@@ -1,7 +1,7 @@
 /* Footer General Styles */
 .footer {
-  background-color: #545050;
-  color: white;
+  background-color:rgb(248, 221, 170);
+  color: rgb(13, 12, 12);
   text-align: center;
   padding: 20px 15px;
   font-family: 'Arial', sans-serif;
@@ -37,7 +37,7 @@
 }
 
 .footer-links a {
-  color: #ddd;
+  color: #403e3e;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s;
@@ -54,7 +54,7 @@
 }
 
 .footer-social a {
-  color: white;
+  color: rgb(10, 10, 10);
   font-size: 20px;
   transition: transform 0.3s ease-in-out, color 0.3s;
 }
@@ -68,7 +68,7 @@
 .footer-bottom {
   margin-top: 10px;
   font-size: 12px;
-  color: #bbb;
+  color: #5f5c5c;
 }
 
 /* Responsive Design */
