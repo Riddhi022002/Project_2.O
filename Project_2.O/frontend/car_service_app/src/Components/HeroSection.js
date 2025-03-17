@@ -6,35 +6,60 @@ import Header from "./Header";
 
 const services = [
   {
-    title: "FOOD DELIVERY",
-    subtitle: "FROM RESTAURANTS",
-    discount: "UPTO 60% OFF",
-    image: "food-image-url",
-  },
-  {
-    title: "INSTAMART",
-    subtitle: "INSTANT GROCERY",
-    discount: "UPTO 60% OFF",
-    image: "grocery-image-url",
-  },
-  {
-    title: "DINEOUT",
-    subtitle: "EAT OUT & SAVE MORE",
+    title: "CAR WASH",
+    subtitle: "SPARKLING CLEAN",
     discount: "UPTO 50% OFF",
-    image: "dineout-image-url",
+    image: "/assets/washingcarstation.jpg",
   },
   {
-    title: "GENIE",
-    subtitle: "PICK-UP & DROP",
-    discount: "",
-    image: "genie-image-url",
+    title: "OIL CHANGE",
+    subtitle: "KEEP YOUR ENGINE SMOOTH",
+    discount: "FLAT 30% OFF",
+    image: "/assets/washingcarstation.jpg",
   },
+  {
+    title: "WHEEL ALIGNMENT",
+    subtitle: "BETTER HANDLING & SAFETY",
+    discount: "UPTO 40% OFF",
+    image: "/assets/washingcarstation.jpg",
+  },
+  {
+    title: "BATTERY CHECK",
+    subtitle: "STAY CHARGED, STAY SAFE",
+    discount: "FREE CHECK-UP",
+    image: "/assets/washingcarstation.jpg",
+  },
+  {
+    title: "CAR AC REPAIR",
+    subtitle: "STAY COOL THIS SUMMER",
+    discount: "UPTO 35% OFF",
+    image: "/assets/washingcarstation.jpg",
+  },
+  // {
+  //   title: "BIKE SERVICE",
+  //   subtitle: "SMOOTH & SAFE RIDES",
+  //   discount: "UPTO 30% OFF",
+  //   image: "/assets/washingcarstation.jpg",
+  // },
+  // {
+  //   title: "TRUCK WASH",
+  //   subtitle: "HEAVY DUTY CLEANING",
+  //   discount: "UPTO 25% OFF",
+  //   image: "/assets/truck-wash.jpg",
+  // },
+  // {
+  //   title: "SCOOTER WASH",
+  //   subtitle: "QUICK & EASY CLEAN",
+  //   discount: "UPTO 20% OFF",
+  //   image: "/assets/scooter-wash.jpg",
+  // },
 ];
 
 export default function HeroSection() {
   const [location, setLocation] = useState("");
 
   return (
+    
     <div className="hero-container">
       {/* Header */}
       {/* <header className="header">
@@ -50,8 +75,9 @@ export default function HeroSection() {
       <Header/>
 
       {/* Hero Content */}
+      
       <div className="hero-content">
-        <h2>Order food & groceries. Discover best restaurants. Swiggy it!</h2>
+        <h2><i><b>Because, Even your Ride deserves the VIP treatment!</b></i></h2>
 
         {/* Search Bar */}
         <div className="search-bar">
@@ -66,22 +92,27 @@ export default function HeroSection() {
           </div> */}
           <div className="input-box">
             <FiSearch className="icon" />
-            <input type="text" placeholder="Search for restaurant, item or more" />
+            <input type="text" placeholder="Search for services,car repair stations, more" />
           </div>
         </div>
       </div>
 
       {/* Service Cards */}
+      
+
       <div className="services-container">
-        {services.map((service, index) => (
-          <div key={index} className="service-card">
-            <span className="service-icon">{service.image}</span>
-            <h3>{service.title}</h3>
-            <p className="subtitle">{service.subtitle}</p>
-            {service.discount && <p className="discount">{service.discount}</p>}
-          </div>
-        ))}
-      </div>
+  {services.map((service, index) => (
+    <div key={index} className="service-card">
+      {/* Use an img tag to render the service image */}
+      <img src={service.image} alt={service.title} className="service-icon" />
+      <h3>{service.title}</h3>
+      <p className="subtitle">{service.subtitle}</p>
+      {service.discount && <p className="discount">{service.discount}</p>}
     </div>
+  ))}
+</div>
+
+    </div>
+ 
   );
 }

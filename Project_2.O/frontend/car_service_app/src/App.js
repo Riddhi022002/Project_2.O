@@ -13,7 +13,9 @@ function App() {
            <Router>
            
             <HeroSection/>  
-            {/* <CarServices/>           */}
+            <CarServices/>    
+            <br/>
+            {/* <h1>Fuel up your ride with top-notch service! 🚗💨</h1>       */}
             <Routes>
                 <Route path="/" element={<CarWashList />} />
                 <Route path="/station/:id" element={<CarWashDetails />} />

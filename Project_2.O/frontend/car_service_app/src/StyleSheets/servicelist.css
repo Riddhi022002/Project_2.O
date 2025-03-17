@@ -1,19 +1,19 @@
 /* Style for services container */
-.services-container {
+.service-list .services-container {
     text-align: center;
-    background-color: #f8f1d0; /* Matching the Swiggy background */
+    background-color: white; 
     padding: 20px;
   }
   
   /* Title styling */
-  .services-title {
+  .service-list .services-title {
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
   }
   
   /* Grid layout for services */
-  .services-grid {
+  .service-list .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ensures even distribution */
     gap: 15px;
@@ -23,7 +23,7 @@
   }
   
   /* Style for each service item */
-  .service-item {
+  .service-list .service-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +38,7 @@
   }
   
   /* Icon styling */
-  .service-icon {
+  .service-list .service-icon {
     background-color: #f8f8f8;
     width: 50px;
     height: 50px;
@@ -51,7 +51,7 @@
   }
   
   /* Service name */
-  .service-name {
+  .service-list .service-name {
     font-size: 14px;
     font-weight: 500;
     margin-top: 8px;

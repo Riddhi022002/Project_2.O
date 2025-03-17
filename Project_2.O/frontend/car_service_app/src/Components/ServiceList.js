@@ -16,6 +16,7 @@ const services = [
 
 const ServiceList = () => {
   return (
+    <div className="service-list">
     <div className="services-container">
       <h2 className="services-title">What’s Your Ride Craving?</h2>
       <div className="services-grid">
@@ -26,6 +27,7 @@ const ServiceList = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
