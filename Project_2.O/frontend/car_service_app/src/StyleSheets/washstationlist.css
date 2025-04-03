@@ -1,25 +1,41 @@
 /* Base styles for mobile devices */
-.car-wash-list {
+div .car-wash-list {
     display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    gap: 15px; /* Reduced spacing for better mobile fit */
-    padding: 15px;
-    margin-top: 20px; /* Smaller margin for mobile */
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px 0; /* Remove left and right padding */
+    margin: 20px;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
-}
+  }
+  
 
 /* Hide the scrollbar but allow scrolling */
 .car-wash-list::-webkit-scrollbar {
     display: none; /* Hides scrollbar in Chrome, Safari */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
 
 .car-wash-list > div {
-    flex: 0 0 80%; /* Ensures each card takes 80% of the screen width on mobile */
-    max-width: 350px; /* Prevents extra-wide cards */
-    min-width: 250px; /* Ensures minimum width for readability */
-    cursor: pointer;
+  flex: 0 0 250px; /* Fix card width */
+  min-width: 250px;
+  max-width: 350px;
 }
+
+.car-wash-list {
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow-x: scroll; 
+    scroll-padding-left: 15px;
+}
+
+ h1{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
 
 /* Medium Devices (Tablets) */
 @media (min-width: 768px) {
@@ -43,3 +59,4 @@
         flex: 0 0 30%; /* Allows three cards per row on large screens */
     }
 }
+

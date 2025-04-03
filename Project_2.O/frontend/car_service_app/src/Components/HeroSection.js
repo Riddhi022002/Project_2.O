@@ -3,7 +3,6 @@ import { FaUserCircle } from "react-icons/fa";
 import { FiSearch, FiMapPin } from "react-icons/fi";
 import "../StyleSheets/herosection.css"; // Ensure correct path
 import Header from "./Header";
-
 const services = [
   {
     title: "CAR WASH",

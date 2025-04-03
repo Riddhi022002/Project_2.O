@@ -1,15 +1,17 @@
 /* Style for services container */
 .service-list .services-container {
-    text-align: center;
-    background-color: white; 
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
   
   /* Title styling */
   .service-list .services-title {
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
+    text-align: center; /* Ensure it's centered */
   }
   
   /* Grid layout for services */
@@ -58,4 +60,4 @@
     color: #333;
     white-space: nowrap; /* Prevent text wrapping */
   }
-  
+ 

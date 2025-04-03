@@ -50,14 +50,17 @@ const CarWashList = () => {
     const navigate = useNavigate();
 
     return (
+      <div>   
+         <h1>Car Wash Stations in Goa</h1>
         <div className="car-wash-list">
-            {carWashStations.map((station) => (
-                <div key={station.id} onClick={() => navigate(`/station/${station.id}`)}>
-                    <CarWashCard {...station} />
-                </div>
-            ))}
+          {carWashStations.map((station) => (
+            <div key={station.id} onClick={() => navigate(`/station/${station.id}`)}>
+              <CarWashCard {...station} />
+            </div>
+          ))}
         </div>
-    );
+      </div>
+      );
 };
 
 export default CarWashList;

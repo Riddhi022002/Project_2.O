@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Components/Header";
 import CarWashList from "./Components/WashStationList";
 import Footer from "./Components/Footer";
 import CarWashDetails from "./Components/WashStationDetails";
 import CarServices from "./Components/ServiceList";
 import HeroSection from "./Components/HeroSection";
-
+import WhyChooseUs from "./Components/WhyChooseUs";
+import Testimonials from "./Components/Testimonials";
+//import Profile from "./Components/Profile";
 function App() {
   return (
     <div className="App">
@@ -15,14 +16,20 @@ function App() {
             <HeroSection/>  
             <CarServices/>    
             <br/>
-            {/* <h1>Fuel up your ride with top-notch service! 🚗💨</h1>       */}
+            <hr/> 
+             <CarWashList />
             <Routes>
-                <Route path="/" element={<CarWashList />} />
+                {/* <Route path="/" element={<CarWashList />} /> */}
                 <Route path="/station/:id" element={<CarWashDetails />} />
             </Routes>
-            
-            <Footer/>
-        </Router>
+            <hr/>
+             <WhyChooseUs/>
+             <hr/>
+             <Testimonials/>
+     
+            <Footer/> 
+         </Router>  
+        {/* <Profile/> */}
     </div>
   );
 }
