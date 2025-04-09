@@ -54,6 +54,21 @@
     margin: auto;
   }
   
+  /*banner part*/
+  .banner-container {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0 20px;
+  }
+  
+  .banner-image {
+    width: 95%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
   /* Search Bar */
   .search-bar {
     

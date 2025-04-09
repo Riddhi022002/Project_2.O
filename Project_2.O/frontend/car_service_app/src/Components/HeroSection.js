@@ -76,7 +76,11 @@ export default function HeroSection() {
       {/* Hero Content */}
       
       <div className="hero-content">
-        <h2><i><b>Because, Even your Ride deserves the VIP treatment!</b></i></h2>
+        {/* <h2><i><b>Because, Even your Ride deserves the VIP treatment!</b></i></h2> */}
+
+        <div class="banner-container">
+          <img src="/assets/Banner2.jpg" alt="Banner" class="banner-image"/>
+        </div>
 
         {/* Search Bar */}
         <div className="search-bar">
