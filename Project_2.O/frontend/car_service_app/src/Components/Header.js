@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../StyleSheets/header.css";
 
 const Header = () => {
-  const [location, setLocation] = useState("Asnode, Goa, India");
+  const [location, setLocation] = useState("Assonora, Goa, India");
   const navigate = useNavigate();
 
   const handleLocationChange = () => {

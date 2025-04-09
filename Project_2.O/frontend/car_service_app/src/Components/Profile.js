@@ -30,7 +30,7 @@ const Profile = () => {
         <p>Email: {user.email}</p>
       </div>
     </div>
-    </div>
+  </div>
   );
 };
 

@@ -31,6 +31,10 @@ const CarWashDetails = () => {
         return <h2>Car Wash Station Not Found</h2>;
     }
 
+// const BookService=()=>{
+//     alert("service booked");
+// }
+
     return (
         <div className="car-wash-container">
             {/* Left Section */}

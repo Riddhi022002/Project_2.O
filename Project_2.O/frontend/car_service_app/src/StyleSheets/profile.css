@@ -7,11 +7,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .profile-header {
+ .profile-container .profile-header {
     text-align: center;
   }
   
-  .profile-pic {
+ .profile-container .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -19,35 +19,35 @@
     border: 4px solid #4CAF50;
   }
   
-  .profile-header h1 {
+ .profile-container .profile-header h1 {
     margin: 10px 0 5px;
     font-size: 2rem;
     color: #333;
   }
   
-  .profile-header p {
+  .profile-container .profile-header p {
     margin: 5px 0;
     color: #777;
   }
   
-  .profile-body {
+  .profile-container .profile-body {
     margin-top: 20px;
   }
   
-  .profile-body h2 {
+  .profile-container .profile-body h2 {
     font-size: 1.5rem;
     color: #4CAF50;
     margin-bottom: 10px;
   }
   
-  .profile-body p {
+  .profile-container .profile-body p {
     color: #555;
     line-height: 1.6;
   }
   
-  .header{
+ .profile-container .header{
     background-color: white;
   }
-  .profile-icon{
+ .profile-container .profile-icon{
     display: none;
   }
