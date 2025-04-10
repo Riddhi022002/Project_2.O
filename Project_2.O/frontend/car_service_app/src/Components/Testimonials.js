@@ -4,17 +4,17 @@ import '../StyleSheets/testimonials.css';
 const testimonialsData = [
   {
     quote: "Great service! My car was like new in no time.",
-    name: "Pandu",
+    name: "KShitij",
     image: '/assets/profile1.jpg',
   },
   {
     quote: "Affordable pricing and very polite staff. Highly recommended!",
-    name: "Seniorita",
+    name: "Seniorita  Vergero",
     image: '/assets/profile2.jpg',
   },
   {
     quote: "Reliable and quick! Best service in town.",
-    name: "meow mimi",
+    name: "Clara Witson",
     image: '/assets/profile3.jpg',
   },
 ];
