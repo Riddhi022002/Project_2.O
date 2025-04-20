@@ -8,12 +8,13 @@ import HeroSection from "./Components/HeroSection";
 import WhyChooseUs from "./Components/WhyChooseUs";
 import Testimonials from "./Components/Testimonials";
 import Profile from "./Components/Profile";
+import UserList from "./Components/user";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Home Page with all components */}
+        {/* Home Page with all components
         <Route
           path="/"
           element={
@@ -31,9 +32,10 @@ function App() {
             </>
           }
         />
-        {/* Other Routes */}
+        {/* Other Routes 
         <Route path="/station/:id" element={<CarWashDetails />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/" element={<UserList/>} />
       </Routes>
     </Router>
   );
