@@ -1,0 +1,12 @@
+Rough Steps to Build Your PWA:
+Create your web app — HTML/CSS/JS or whatever framework (React, Vue, etc.).
+
+Add a manifest.json with app name, icons, theme color, etc.
+
+Register a service-worker.js for caching and offline features.
+
+Serve over HTTPS (PWAs need a secure connection).
+
+Add a <link rel="manifest" href="manifest.json"> in your HTML.
+
+(Optional) Add extra stuff like push notifications.
