@@ -9,14 +9,17 @@ import WhyChooseUs from "./Components/WhyChooseUs";
 import Testimonials from "./Components/Testimonials";
 import Profile from "./Components/Profile";
 import UserList from "./Components/user";
+import Login from "./Components/Shared/Login";
+import SupplierHomePage from "./Components/Vender/VenderHeader";
+import VendorRegistrationForm from "./Components/Vender/VendorRegistrationFormPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Home Page with all components
+        Home Page with all components
         <Route
-          path="/"
+          path="/home"
           element={
             <>
               <HeroSection />
@@ -32,10 +35,13 @@ function App() {
             </>
           }
         />
-        {/* Other Routes 
+        {/* Other Routes */}
         <Route path="/station/:id" element={<CarWashDetails />} />
-        <Route path="/profile" element={<Profile />} /> */}
-        <Route path="/" element={<UserList/>} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/Sharedlogin" element={<Login/>} />
+        <Route path="/" element={<SupplierHomePage/>} />
+        <Route path="/VendorRegistration" element={<VendorRegistrationForm/>} />
+
       </Routes>
     </Router>
   );

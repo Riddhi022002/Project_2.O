@@ -1,0 +1,57 @@
+.vendor-form {
+    width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-family: Arial, sans-serif;
+  }
+  
+  .vendor-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .success-msg {
+    color: green;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0033a0;
+  }
+  
