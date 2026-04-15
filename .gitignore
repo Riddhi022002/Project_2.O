@@ -1,0 +1,11 @@
+node_modules/
+*.log
+.env
+
+# Database files
+*.mdf
+*.ldf
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -11,7 +11,15 @@ import Profile from "./Components/Profile";
 import UserList from "./Components/user";
 import Login from "./Components/Shared/Login";
 import SupplierHomePage from "./Components/Vender/VenderHeader";
-import VendorRegistrationForm from "./Components/Vender/VendorRegistrationFormPage";
+import AddServiceForm from "./Components/Vender/VendorAddServicePage";
+import VendorServices from "./Components/Vender/DisplayServiceByVendorId";
+
+import VendorSignup from "./Components/Vender/VendorRegistration";
+import Signup from "./Components/Customer/CustomerRegistration";
+import CustomerHome from "./Components/Customer/CustomerHomePage";
+import LandingPage from "./Components/Shared/LandingPage";
+import CustomerLogin from "./Components/Customer/CustomerLoginPage";
+import VendorLogin from "./Components/Vender/VendorLoginPage";
 
 function App() {
   return (
@@ -19,10 +27,10 @@ function App() {
       <Routes>
         Home Page with all components
         <Route
-          path="/home"
+          path="/"
           element={
             <>
-              <HeroSection />
+              {/* <HeroSection />
               <CarServices />
               <br />
               <hr />
@@ -31,19 +39,30 @@ function App() {
               <WhyChooseUs />
               <hr />
               <Testimonials />
-              <Footer />
+              <Footer /> */}
+
+              {/* <Signup /> */}
+              {/* <VendorSignup /> */}
+              {/* <Login/> */}
+              {/* <LandingPage/> */}
+              {/* <CustomerLogin/> */}
+              <VendorLogin/>
             </>
           }
         />
         {/* Other Routes */}
+        <Route path="/CustomerRegistrationPage" element={<Signup />} />
+        <Route path="/VendorRegistrationPage" element={<VendorSignup/>} />
+        <Route path="/CustomerHomePage" element={<CustomerHome/>} />
         <Route path="/station/:id" element={<CarWashDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/Sharedlogin" element={<Login/>} />
-        <Route path="/" element={<SupplierHomePage/>} />
-        <Route path="/VendorRegistration" element={<VendorRegistrationForm/>} />
-
+        <Route path="/VendorHomePage" element={<SupplierHomePage/>} />
+         <Route path="/VendorAddServicePage" element={<AddServiceForm/>} />
+         <Route path="/VendorServicePage" element={<VendorServices/>} />
       </Routes>
     </Router>
   );
+  
 }
 export default App;
