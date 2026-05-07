@@ -1,44 +1,72 @@
-const db = require('../config/db');
+const db = require("../config/db");
+const supabase = require("../config/supabaseClient");
 
 const createVendor = async (vendor) => {
-    const { business_name,
-      owner_name,
-      phonenumber,
-      address,
-      city,
-      state,
-      pincode,
-      gst_number,
-      password} = vendor;
+  const {
+    business_name,
+    owner_name,
+    phonenumber,
+    address,
+    city,
+    state,
+    pincode,
+    gst_number,
+    password,
+  } = vendor;
 
-    const [result] = await db.execute(
-  `INSERT INTO VENDOR 
-   (BUSINESSNAME, OWNERNAME, PHONENUMBER, ADDRESSLINE, CITY, STATE, PINCODE, GSTNUMBER, PASSWORDHASH)
-   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-  [business_name, owner_name, phonenumber, address, city, state, pincode, gst_number, password]
-);
+  const { data, error } = await supabase
+    .from("vendor")
+    .insert([
+      {
+        businessname: business_name,
+        ownername: owner_name,
+        phonenumber: phonenumber,
+        addressline: address,
+        city: city,
+        state: state,
+        pincode: pincode,
+        gstnumber: gst_number,
+        passwordhash: password,
+      },
+    ])
+    .select();
 
-    return result.insertId;
+  if (error) {
+    console.error("Error creating vendor:", error);
+    throw error;
+  }
+
+  return data[0].vendorid;
 };
 
 const vendorLogin = async (phonenumber) => {
+  const { data, error } = await supabase
+    .from("vendor")
+    .select("*")
+    .eq("phonenumber", phonenumber)
+    .single();
 
-    const [rows] = await db.execute(
-      "SELECT * FROM VENDOR WHERE PHONENUMBER = ?",
-      [phonenumber]
-    );
+  if (error) {
+    console.error("Error fetching vendor:", error);
+    return null;
+  }
 
-    return rows;
+  return data;
 };
 
 const fetchVendors = async () => {
+  const { data, error } = await supabase
+    .from("vendor")
+    .select("*")
+    .eq("isverified", true)
+    .eq("isactive", true);
 
-    const [rows] = await db.execute(
-      "SELECT * FROM VENDOR WHERE ISVERIFIED=1 AND ISACTIVE=1"
-    );
+  if (error) {
+    console.error("Error fetching vendors:", error);
+    return [];
+  }
 
-    return rows;
+  return data;
 };
-
 
 module.exports = { createVendor, vendorLogin, fetchVendors };

@@ -1,28 +1,81 @@
-const db = require('../config/db');
+const db = require("../config/db");
+const supabase = require("../config/supabaseClient");
 
 const FetchAdminDefinedServices = async () => {
-   const [rows] = await db.execute(
-        "SELECT SERVICEID as id, SERVICENAME as name, ICON as serviceicon FROM SERVICE"
-);
-    return rows;
+  const { data, error } = await supabase.from("service").select(`
+    serviceid,
+    servicename,
+    icon
+  `);
+
+  if (error) {
+    console.error("Error fetching services:", error);
+    return [];
+  }
+
+  const rows = data.map((service) => ({
+    id: service.serviceid,
+    name: service.servicename,
+    serviceicon: service.icon,
+  }));
+
+  return rows;
 };
 
-const createVendorService = async (data) => {
-    const {vendor_id,service} = data;
+const createVendorService = async (payload) => {
+  const { vendor_id, service } = payload;
 
-    const [result] =  await db.execute(
-          `INSERT INTO VENDOR_SERVICE (VENDORID, SERVICEID, PRICE)
-           VALUES (?, ?, ?)`,
-          [vendor_id, service.service_id, service.price]
-        );
-    return result.insertId;
+  const { data, error } = await supabase
+    .from("vendor_service")
+    .insert([
+      {
+        vendorid: vendor_id,
+        serviceid: service.service_id,
+        price: service.price,
+      },
+    ])
+    .select();
+
+  if (error) {
+    console.error("Error adding vendor service:", error);
+    throw error;
+  }
+
+  return data[0].vendorserviceid;
 };
 
 const FetchServicesByVendorId = async (vendorId) => {
-   const [rows] = await db.execute(
-        "SELECT VS.VENDORSERVICEID as id, S.SERVICENAME as service_name, VS.PRICE as price, S.SERVICEDESCRIPTION as description FROM SERVICE S inner join VENDOR_SERVICE VS ON S.SERVICEID = VS.SERVICEID where VENDORID=?",[vendorId]
-        ,[vendorId]);
-    return rows;
+  const { data, error } = await supabase
+    .from("vendor_service")
+    .select(
+      `
+    vendorserviceid,
+    price,
+    service (
+      servicename,
+      servicedescription
+    )
+  `,
+    )
+    .eq("vendorid", vendorId);
+
+  if (error) {
+    console.error("Error fetching vendor services:", error);
+    return [];
+  }
+
+  const rows = data.map((item) => ({
+    id: item.vendorserviceid,
+    service_name: item.service?.servicename,
+    price: item.price,
+    description: item.service?.servicedescription,
+  }));
+
+  return rows;
 };
 
-module.exports = { createVendorService ,FetchAdminDefinedServices, FetchServicesByVendorId};
+module.exports = {
+  createVendorService,
+  FetchAdminDefinedServices,
+  FetchServicesByVendorId,
+};

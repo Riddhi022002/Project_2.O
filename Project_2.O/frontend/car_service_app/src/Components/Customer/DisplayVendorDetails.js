@@ -34,6 +34,7 @@ const VendorDetails = () => {
       );
 
       setServices(res.data);
+      console.log(res.data);
     } catch (err) {
       console.error("Error fetching vendor services:", err);
     }
@@ -49,10 +50,16 @@ const VendorDetails = () => {
   return (
     <div className="vendor-container">
       {/* HEADER */}
+       <button
+          className="back-btn"
+          onClick={() => navigate("/CustomerHomePage")}
+        >
+          ←
+        </button>
       <div className="vendor-header">
         <div className="vendor-image">
           <img
-            src="https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?q=80&w=1200&auto=format&fit=crop"
+            src="/assets/washingcarstation.jpg"
             alt="Vendor"
           />
         </div>

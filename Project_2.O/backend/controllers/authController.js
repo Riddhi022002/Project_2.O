@@ -1,4 +1,5 @@
 const db = require("../config/db");
+const supabase = require("../config/supabaseClient");
 
 const { createCustomer, customerLogin } = require("../models/customerModel");
 const { createCar } = require("../models/carModel");

@@ -81,6 +81,18 @@
   font-weight: 600;
 }
 
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  background: #ff7b00;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  color: white;
+}
+
 /* ========================= */
 /* ABOUT */
 /* ========================= */

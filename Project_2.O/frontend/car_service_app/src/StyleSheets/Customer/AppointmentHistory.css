@@ -1,0 +1,91 @@
+.tracking-container {
+  width: 100%;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.tracking-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* horizontal scroll for mobile */
+.tracking-steps {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+.step-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* circle */
+.step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #555;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.step-circle.active {
+  background: #22c55e;
+  color: white;
+}
+
+/* label */
+.step-label {
+  font-size: 11px;
+  margin-left: 6px;
+  margin-right: 12px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.step-label.active-text {
+  color: #111;
+  font-weight: 500;
+}
+
+/* line between steps */
+.step-line {
+  width: 30px;
+  height: 2px;
+  background: #e5e7eb;
+  margin-right: 12px;
+}
+
+.step-line.active-line {
+  background: #22c55e;
+}
+
+/* hide scrollbar */
+.tracking-steps::-webkit-scrollbar {
+  display: none;
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  background: #ff7b00;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  color: white;
+}

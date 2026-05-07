@@ -1,4 +1,5 @@
 const db = require("../config/db");
+const supabase = require("../config/supabaseClient");
 const { FetchAdminDefinedServices, createVendorService, FetchServicesByVendorId } = require("../models/serviceModel");
 
 const getAllServices = async (req, res) => {

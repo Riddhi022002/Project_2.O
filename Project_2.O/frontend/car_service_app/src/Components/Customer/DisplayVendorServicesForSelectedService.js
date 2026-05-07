@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import "../../StyleSheets/washstationlist.css";
-import "../../StyleSheets/cardviews.css";
+import "../../StyleSheets/Customer/DisplayVendorServices.css"
 
 const DisplayVendorServicesForSelectedService = () => {
   const { serviceId } = useParams(); // 👈 important
@@ -26,7 +25,14 @@ const DisplayVendorServicesForSelectedService = () => {
 
   return (
     <div>
-      <h1>Choose Your Provider</h1>
+       <button
+          className="back-btn"
+          onClick={() => navigate("/CustomerHomePage")}
+        >
+          ←
+        </button>
+
+      <h1>Car Care Partners</h1>
 
       <div className="car-wash-list">
         {vendors.length === 0 ? (

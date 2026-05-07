@@ -1,50 +1,64 @@
-/* ========================= */
-/* 🔹 MOBILE FIRST (DEFAULT) */
-/* ========================= */
+/* =========================
+   MOBILE FIRST (DEFAULT)
+========================= */
 
 .car-wash-list {
   display: flex;
-  overflow-x: auto;
-  gap: 10px; /* tighter spacing */
-  padding: 10px 15px;
-  scroll-behavior: smooth;
+  flex-direction: row;
+  flex-wrap: nowrap;        /* ❗ prevents vertical stacking */
 
-  /* Hide scrollbar */
+  overflow-x: auto;         /* horizontal scroll */
+  overflow-y: hidden;
+
+  gap: 12px;
+  padding: 12px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
   scrollbar-width: none;
+
+  /* 🔥 IMPORTANT: prevents child stretching issues */
+  align-items: stretch;
 }
 
 .car-wash-list::-webkit-scrollbar {
   display: none;
 }
 
-/* Prevent wrapping */
-.car-wash-list > div {
-  flex: 0 0 auto;
-}
+/* =========================
+   CARD (MOBILE FIRST)
+========================= */
 
-/* 🔹 Compact Card */
 .car-wash-card {
-  width: 180px; /* smaller for mobile */
-  background: white;
-  border-radius: 10px;
+  flex: 0 0 80%;            /* one card visible */
+  width: 80%;
+  min-width: 80%;           /* 🔥 prevents shrinking weirdness */
+
+  background: #fff;
+  border-radius: 14px;
   overflow: hidden;
 
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+  scroll-snap-align: start;
+
   transition: transform 0.2s ease;
 }
 
-.car-wash-card:hover {
-  transform: scale(1.02);
+.car-wash-card:active {
+  transform: scale(0.98);
 }
 
-/* 🔹 Image */
+/* IMAGE */
 .car-wash-image {
   width: 100%;
-  height: 110px; /* reduced height */
+  height: 120px;
   object-fit: cover;
+  display: block;
 }
 
-/* 🔹 Info */
+/* TEXT */
 .car-wash-info {
   padding: 8px;
 }
@@ -52,7 +66,11 @@
 .car-wash-name {
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .car-wash-location {
@@ -64,44 +82,31 @@
 .car-wash-meta {
   display: flex;
   justify-content: space-between;
+
   font-size: 11px;
   font-weight: 500;
 }
 
-/* 🔹 Title */
-h1 {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 1.4rem;
-}
+/* =========================
+   TABLET (2 cards)
+========================= */
 
-
-/* ========================= */
-/* 🔹 TABLET */
-/* ========================= */
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .car-wash-card {
-    width: 220px;
-  }
-
-  .car-wash-name {
-    font-size: 14px;
+    flex: 0 0 48%;
+    min-width: 48%;
+    width: 48%;
   }
 }
 
+/* =========================
+   DESKTOP (3 cards)
+========================= */
 
-/* ========================= */
-/* 🔹 DESKTOP */
-/* ========================= */
 @media (min-width: 1024px) {
-
-  .car-wash-list {
-    justify-content: center;
-    overflow-x: hidden; /* stop scroll */
-    flex-wrap: wrap; /* switch to grid */
-  }
-
   .car-wash-card {
-    width: 250px;
+    flex: 0 0 30%;
+    min-width: 30%;
+    width: 30%;
   }
 }

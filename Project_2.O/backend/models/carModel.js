@@ -1,30 +1,33 @@
-const db = require('../config/db');
+const db = require("../config/db");
+const supabase = require("../config/supabaseClient");
 
 const createCar = async (car) => {
-    const { customer_id, brand, model, registration_number } = car;
+  const { customer_id, brand, model, registration_number } = car;
 
-    console.log("Car Data:", {
+  console.log("Car Data:", {
     customer_id,
     brand,
     model,
-    registration_number
-    });
+    registration_number,
+  });
 
-    await db.execute(
-        `INSERT INTO VEHICLE (CUSTOMERID, VEHICLEBRANDNAME, VEHICLEMODELNAME,VEHICLEREGISTRATIONNUMBER)
-         VALUES (?, ?, ?, ?)`,
-        [customer_id, brand, model, registration_number]
-    );
+  const { data, error } = await supabase.from("vehicle").insert([
+    {
+      customerid: customer_id,
+      vehiclebrandname: brand,
+      vehiclemodelname: model,
+      vehicleregistrationnumber: registration_number,
+    },
+  ]);
 };
 
 const getCarsByCustomerId = async (customerid) => {
+  const { data, error } = await supabase
+    .from("vehicle")
+    .select("*")
+    .eq("customerid", customerid);
 
-   const [rows] = await db.execute(
-      "SELECT * FROM VEHICLE WHERE CUSTOMERID = ?",
-      [customerid]
-    );
-
-    return rows;
+  return data;
 };
 
 module.exports = { createCar, getCarsByCustomerId };

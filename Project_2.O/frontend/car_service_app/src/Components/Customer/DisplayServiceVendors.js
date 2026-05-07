@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import "../../StyleSheets/washstationlist.css";
-// import "../../StyleSheets/cardviews.css";
 import "../../StyleSheets/Customer/DisplayServiceVendors.css"
 
 const VendorList = () => {
@@ -14,6 +12,7 @@ const VendorList = () => {
             .get("http://localhost:5000/api/vendor/getAllVendors")
             .then((res) => {
                 setVendors(res.data);
+                console.log(res.data);
             })
             .catch((err) => {
                 console.error("Error fetching vendors:", err);
@@ -34,7 +33,7 @@ const VendorList = () => {
                         <div
                             key={vendor.id}
                             className="car-wash-card"
-                            onClick={() => navigate(`/VendorDetails/${vendor.VENDORID}`)}
+                            onClick={() => navigate(`/VendorDetails/${vendor.vendorid}`)}
                         >
                             {/* Common Image */}
                             <img
@@ -45,15 +44,15 @@ const VendorList = () => {
 
                             <div className="car-wash-info">
                                 <h3 className="car-wash-name">
-                                    {vendor.BUSINESSNAME}
+                                    {vendor.businessname}
                                 </h3>
 
                                 <p className="car-wash-location">
-                                    📍 {vendor.CITY}
+                                    📍 {vendor.city}
                                 </p>
 
                                 <div className="car-wash-meta">
-                                    <span>⭐ {vendor.rating || "N/A"}</span>
+                                    <span>⭐ {vendor.rating || "4.0"}</span>
                                     <span>
                                         ⏳ {vendor.estimated_time || 30} mins
                                     </span>

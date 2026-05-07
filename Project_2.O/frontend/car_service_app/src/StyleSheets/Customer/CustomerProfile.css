@@ -1,70 +1,197 @@
-.profile-container {
-  padding: 12px;
-  font-family: "Poppins", sans-serif;
-  background: #f8fafc;
-  min-height: 100vh;
+/* ========================= */
+/* 🔹 GLOBAL */
+/* ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 🔹 Header */
+body {
+  background: #f4f7fb;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-container {
+  min-height: 100vh;
+  padding: 12px 16px 16px 16px;
+  background: #f4f7fb;
+}
+/* ========================= */
+/* 🔹 HEADER */
+/* ========================= */
+
 .profile-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  align-items: center;
+  margin-bottom: 22px;
 }
 
-.profile-header h2 {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* 🔹 Buttons */
 .back-btn {
-  background: none;
+  width: 42px;
+  height: 42px;
   border: none;
-  font-size: 20px;
+  border-radius: 14px;
+  background: #ff7b00;
+  font-size: 22px;
   cursor: pointer;
-  color: black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  color: white;
 }
 
 .history-btn {
-  background: #0f172a;
-  color: white;
   border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 12px;
+  background: linear-gradient(135deg, #ff7b00, #ff9838);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(255, 123, 0, 0.25);
+  width: 150px;
 }
 
-/* 🔹 Profile Card */
+/* ========================= */
+/* 🔹 PROFILE CARD */
+/* ========================= */
+
 .profile-card {
   background: white;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
-/* 🔹 Cars Section */
-.cars-section h3 {
-  margin-bottom: 10px;
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
 }
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.profile-info p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+/* ========================= */
+/* 🔹 EDIT BUTTON */
+/* ========================= */
+
+.edit-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: #f1f5f9;
+  font-size: 18px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s;
+}
+
+.edit-btn:active {
+  transform: scale(0.95);
+}
+
+/* ========================= */
+/* 🔹 CARS SECTION */
+/* ========================= */
+
+.cars-section h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+/* ========================= */
+/* 🔹 CAR CARD */
+/* ========================= */
 
 .car-card {
   background: white;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  border-left: 5px solid #ff7b00;
 }
 
-/* ➕ Add Car */
-.add-car-card {
-  text-align: center;
-  padding: 12px;
-  border: 2px dashed #0f172a;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 500;
+.car-card p {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.car-card strong {
+  font-size: 17px;
   color: #0f172a;
+}
+
+/* ========================= */
+/* 🔹 ADD CAR */
+/* ========================= */
+
+.add-car-card {
+  margin-top: 14px;
+  background: white;
+  border: 2px dashed #ff7b00;
+  color: #ff7b00;
+  border-radius: 20px;
+  padding: 18px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-car-card:active {
+  transform: scale(0.98);
+  background: #fff7ed;
+}
+
+/* ========================= */
+/* 🔹 TABLET */
+/* ========================= */
+
+@media (min-width: 768px) {
+
+  .profile-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 24px;
+  }
+
+  .profile-info h3 {
+    font-size: 24px;
+  }
+
+  .profile-info p {
+    font-size: 15px;
+  }
+
+  .history-btn {
+    font-size: 14px;
+  }
 }

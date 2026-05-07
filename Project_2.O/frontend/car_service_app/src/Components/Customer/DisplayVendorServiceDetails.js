@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "../../StyleSheets/washstationdetails.css";
 import "../../StyleSheets/Customer/DisplayVendorServiceDetails.css";
 
 const VendorServiceDetails = () => {
@@ -27,7 +26,7 @@ const VendorServiceDetails = () => {
     const fetchVendorService = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/vendor/vendorsServicesByService/${id}`,
+          `http://localhost:5000/api/vendor/vendorServiceById/${id}`,
         );
 
         if (res.data.length > 0) {
@@ -56,11 +55,11 @@ const VendorServiceDetails = () => {
 
   const fetchCars = async () => {
     try {
-     const customerId = localStorage.getItem("customerId");
+      const customerId = localStorage.getItem("customerId");
       // const res = await axios.get(
       //   `http://localhost:5000/api/customer/getCarsByCustomerId/${customerId}`,
       // );
-       const res = await axios.get(
+      const res = await axios.get(
         `http://localhost:5000/api/customer/getCarsByCustomerId/${6}`,
       );
 
@@ -71,39 +70,38 @@ const VendorServiceDetails = () => {
   };
 
   // 🔹 Booking Handler
-const handleBooking = async () => {
-  if (!selectedCar || !serviceType || !timeSlot || !selectedDate) {
-    alert("Please fill all fields");
-    return;
-  }
+  const handleBooking = async () => {
+    if (!selectedCar || !serviceType || !timeSlot || !selectedDate) {
+      alert("Please fill all fields");
+      return;
+    }
 
-  try {
-    const customerId = localStorage.getItem("customerId"); // ✅ from login
+    try {
+      const customerId = localStorage.getItem("customerId"); // ✅ from login
 
-    const bookingData = {
-      customerId,
-      carId: selectedCar,
-      vendorServiceId: vendorService.VENDORSERVICEID,
-      serviceType,
-      date: selectedDate,
-      timeSlot,
-    };
+      const bookingData = {
+        customerId,
+        carId: selectedCar,
+        vendorServiceId: vendorService.VENDORSERVICEID,
+        serviceType,
+        date: selectedDate,
+        timeSlot,
+      };
 
-    console.log("Sending Booking:", bookingData);
+      console.log("Sending Booking:", bookingData);
 
-    await axios.post(
-      "http://localhost:5000/api/customer/bookService",
-      bookingData
-    );
+      // await axios.post(
+      //   "http://localhost:5000/api/customer/bookService",
+      //   bookingData
+      // );
 
-    setShowPopup(false);
-    setShowSuccessPopup(true);
-
-  } catch (err) {
-    console.error("Booking failed:", err);
-    alert("Booking failed");
-  }
-};
+      setShowPopup(false);
+      setShowSuccessPopup(true);
+    } catch (err) {
+      console.error("Booking failed:", err);
+      alert("Booking failed");
+    }
+  };
 
   if (loading) return <h2>Loading...</h2>;
   if (!vendorService) return <h2>Service Not Found</h2>;
@@ -126,7 +124,7 @@ const handleBooking = async () => {
         </p>
 
         <p>
-          <strong>Time taken for the service:</strong> {vendorService.ESTIMATED_TIME} mins
+          <strong>Time taken for the service:</strong> 30 mins
         </p>
 
         <button className="book-service-btn" onClick={() => setShowPopup(true)}>
@@ -162,7 +160,8 @@ const handleBooking = async () => {
                       value={car.VEHICLEID}
                       onChange={(e) => setSelectedCar(e.target.value)}
                     />
-                    {car.VEHICLEBRANDNAME} {car.VEHICLEMODELNAME} ({car.VEHICLEREGISTRATIONNUMBER})
+                    {car.VEHICLEBRANDNAME} {car.VEHICLEMODELNAME} (
+                    {car.VEHICLEREGISTRATIONNUMBER})
                   </label>
                 ))
               )}
@@ -244,31 +243,31 @@ const handleBooking = async () => {
 
       {/* 🔹SUCCESS POPUP */}
       {showSuccessPopup && (
-  <div className="popup-overlay">
-    <div className="popup-box">
-      <h3>Request Sent ✅</h3>
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <h3>Request Sent ✅</h3>
 
-      <p style={{ marginTop: "10px" }}>
-        Your service request has been sent to the vendor.
-      </p>
+            <p style={{ marginTop: "10px" }}>
+              Your service request has been sent to the vendor.
+            </p>
 
-      <p>
-        Once the appointment is confirmed, you will be able to track it.
-      </p>
+            <p>
+              Once the appointment is confirmed, you will be able to track it.
+            </p>
 
-      <div className="popup-actions">
-        <button
-          onClick={() => {
-            setShowSuccessPopup(false);
-            navigate("/CustomerHomePage"); // 👈 or wherever you want
-          }}
-        >
-          OK
-        </button>
-      </div>
-    </div>
-  </div>
-)}
+            <div className="popup-actions">
+              <button
+                onClick={() => {
+                  setShowSuccessPopup(false);
+                  navigate("/tracking"); 
+                }}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 const db = require("../config/db");
+const supabase = require("../config/supabaseClient");
 const { fetchVendors } = require("../models/vendorModel");
 
 const getAllVendors = async (req, res) => {
@@ -15,18 +16,19 @@ const getAllVendors = async (req, res) => {
 const getVendorServicesByService = async (req, res) => {
   const { serviceId } = req.params;
 
+  console.log('Serviceid passed:',serviceId);
   try {
-    const [rows] = await db.query(
-      `
-      SELECT DISTINCT v.*,vs.*
-      FROM vendor v
-      JOIN vendor_service vs ON v.VENDORID = vs.VENDORID
-      WHERE vs.SERVICEID = ?
-      `,
-      [serviceId],
-    );
+    const { data, error } = await supabase
+      .from("vendor_service")
+      .select(`
+        *,
+        vendor (*),
+        service (*)
+      `)
+      .eq("serviceid", serviceId);
 
-    res.json(rows);
+    res.json(data);
+
   } catch (error) {
     console.error("Error fetching vendors by service:", error);
     res.status(500).json({ message: "Server error" });
@@ -36,22 +38,22 @@ const getVendorServicesByService = async (req, res) => {
 const getVendorServicesById = async (req, res) => {
   const { VendorServiceId } = req.params;
 
-  console.log(VendorServiceId);
-  console.log("Working");
   try {
-    const [rows] = await db.query(
-      `
-      
-SELECT DISTINCT vs.*
-      FROM vendor v
-      JOIN vendor_service vs ON v.VENDORID = vs.VENDORID
-      WHERE vs.VENDORSERVICEID = ?
+   const { data, error } = await supabase
+  .from("vendor_service")
+  .select(`
+    *,
+    service (*)
+  `)
+  .eq("vendorserviceid", VendorServiceId);
 
-      `,
-      [VendorServiceId],
-    );
+if (error) {
+  console.error("Error fetching vendor service:", error);
+  return res.status(500).json({ message: "Server error" });
+}
 
-    res.json(rows);
+res.json(data);
+
   } catch (error) {
     console.error("Error fetching vendors by service:", error);
     res.status(500).json({ message: "Server error" });
@@ -62,17 +64,13 @@ const getVendorById = async (req, res) => {
   const { VendorId } = req.params;
 
   try {
-    const [rows] = await db.query(
-      `SELECT DISTINCT *
-      FROM vendor 
-      WHERE VENDORID = ?`,
-      [VendorId],
-    );
+    const { data, error } = await supabase
+  .from("vendor")
+  .select("*")
+  .eq("vendorid", VendorId)
+  .single();
 
-    console.log("Vendor");
-    console.log(rows);
-
-    res.json(rows);
+res.json(data);
   } catch (error) {
     console.error("Error fetching details of the selected Vendor:", error);
     res.status(500).json({ message: "Server error" });
@@ -83,18 +81,16 @@ const getVendorServicesByVendorId = async (req, res) => {
   const { VendorId } = req.params;
 
   try {
-    const [rows] = await db.query(
-     ` SELECT DISTINCT vs.*
-      FROM vendor v
-      JOIN vendor_service vs ON v.VENDORID = vs.VENDORID
-      WHERE v.VENDORID = ?`,
-      [VendorId]
-    );
+    const { data, error } = await supabase
+  .from("vendor_service")
+  .select(`
+    *,
+    service (*)
+  `)
+  .eq("vendorid", VendorId);
 
-console.log("VendorService");
-console.log(rows);
 
-    res.json(rows);
+    res.json(data);
   } catch (error) {
     console.error("Error fetching services under the selected Vendor:", error);
     res.status(500).json({ message: "Server error" });
