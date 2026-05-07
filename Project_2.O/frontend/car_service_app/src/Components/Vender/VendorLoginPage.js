@@ -26,7 +26,7 @@ const VendorLogin = () => {
         formData,
       );
       console.log(res.data);
-
+      localStorage.setItem("vendorId", res.data.VENDORID);
       // after login
       navigate("/VendorHomePage");
     } catch (err) {

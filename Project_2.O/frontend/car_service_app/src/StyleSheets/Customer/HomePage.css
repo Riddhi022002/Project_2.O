@@ -1,0 +1,92 @@
+/* ========================= */
+/* 🔹 MOBILE FIRST (SMALLER) */
+/* ========================= */
+
+.home {
+  background: white;
+  min-height: 100dvh;
+  padding: 10px;
+  color:#0f172a;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+.switch-container {
+  display: flex;
+  /* gap: 8px; */
+  overflow-x: auto;
+  padding-bottom: 4px;
+   justify-content: center; 
+}
+
+/* 🔹 Smaller Card */
+.switch-card {
+  flex: 0 0 auto;
+  width: 90px;              /* reduced from 110px */
+  padding: 10px 6px;        /* tighter padding */
+
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+
+  /* background: linear-gradient(145deg, #1e293b, #0f172a); */
+  background: orange;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: all 0.25s ease;
+  color: white;
+}
+
+/* 🔹 Active */
+.switch-card.active {
+  /* background: linear-gradient(145deg, #ff7a18, #ff3d00); */
+  background: white;
+  /* box-shadow: 0 3px 12px rgba(255, 100, 0, 0.35); */
+}
+
+/* 🔹 Smaller Icon */
+.icon-circle {
+  width: 36px;     /* reduced */
+  height: 36px;
+
+  margin: 0 auto 4px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  font-size: 16px;
+}
+
+/* 🔹 Text */
+.switch-card p {
+  font-size: 12px;   /* slightly smaller */
+  margin: 0;
+}
+
+/* ========================= */
+/* 🔹 TABLET */
+/* ========================= */
+
+@media (min-width: 768px) {
+
+  .switch-card {
+    width: 120px;
+    padding: 14px;
+  }
+
+  .icon-circle {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .switch-card p {
+    font-size: 14px;
+  }
+}

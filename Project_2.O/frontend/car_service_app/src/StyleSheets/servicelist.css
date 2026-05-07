@@ -1,63 +1,110 @@
-/* Style for services container */
+/* ========================= */
+/* 🔹 MOBILE FIRST (DEFAULT) */
+/* ========================= */
+
 .service-list .services-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
+  padding: 10px;
 }
-  
-  /* Title styling */
-  .service-list .services-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center; /* Ensure it's centered */
-  }
-  
-  /* Grid layout for services */
-  .service-list .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ensures even distribution */
-    gap: 15px;
-    justify-content: center;
-    max-width: 800px; /* Optional: Limit width */
-    margin: 0 auto;
-  }
-  
-  /* Style for each service item */
+
+/* Title */
+.service-list .services-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* 🔥 Horizontal scroll container */
+.service-list .services-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  width: 100%;
+  padding-bottom: 10px;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* Hide scrollbar (optional) */
+  scrollbar-width: none;
+}
+
+.service-list .services-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🔹 Service card */
+.service-list .service-item {
+  flex: 0 0 auto; /* 🔥 prevents shrinking */
+  width: 90px;
+  height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon */
+.service-list .service-icon {
+  background-color: #f8f8f8;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  color: #f97316;
+}
+
+/* Name */
+.service-list .service-name {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 6px;
+  color: #333;
+  text-align: center;
+}
+
+/* ========================= */
+/* 🔹 TABLET */
+/* ========================= */
+@media (min-width: 768px) {
   .service-list .service-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 120px; /* Fixed width */
-    height: 120px; /* Fixed height for uniform boxes */
+    width: 110px;
+    height: 110px;
   }
-  
-  /* Icon styling */
-  .service-list .service-icon {
-    background-color: #f8f8f8;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #f97316; /* Orange color similar to Swiggy */
-  }
-  
-  /* Service name */
+
   .service-list .service-name {
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 8px;
-    color: #333;
-    white-space: nowrap; /* Prevent text wrapping */
+    font-size: 13px;
   }
- 
+}
+
+/* ========================= */
+/* 🔹 DESKTOP */
+/* ========================= */
+@media (min-width: 1024px) {
+  .service-list .services-grid {
+    justify-content: center;
+    overflow-x: hidden; /* optional */
+    flex-wrap: wrap; /* optional: convert to grid on desktop */
+  }
+
+  .service-list .service-item {
+    width: 120px;
+    height: 120px;
+  }
+}

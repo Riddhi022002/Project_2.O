@@ -104,8 +104,6 @@ const loginCustomer = async (req, res) => {
     // 1. Check if customer exists
     const rows = await customerLogin(email);
 
-    console.log(rows);//test
-
     if (rows.length === 0) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
@@ -140,8 +138,6 @@ const loginVendor = async (req, res) => {
 
     // 1. Check if customer exists
     const rows = await vendorLogin(phonenumber);
-
-    console.log(rows);//test
 
     if (rows.length === 0) {
       return res.status(401).json({ message: "Invalid phone or password" });

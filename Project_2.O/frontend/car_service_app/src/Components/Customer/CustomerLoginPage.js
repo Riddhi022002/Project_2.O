@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../../StyleSheets/SharedCSS/login.css"
 
 const CustomerLogin = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const CustomerLogin = () => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/customer/login", formData);
       console.log(res.data);
-
+     localStorage.setItem("customerId", res.data.CUSTOMERID);
       // after login
       navigate("/CustomerHomePage");
     } catch (err) {

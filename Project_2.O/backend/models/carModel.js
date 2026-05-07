@@ -17,4 +17,14 @@ const createCar = async (car) => {
     );
 };
 
-module.exports = { createCar };
+const getCarsByCustomerId = async (customerid) => {
+
+   const [rows] = await db.execute(
+      "SELECT * FROM VEHICLE WHERE CUSTOMERID = ?",
+      [customerid]
+    );
+
+    return rows;
+};
+
+module.exports = { createCar, getCarsByCustomerId };

@@ -94,7 +94,7 @@ const Signup = () => {
 
           <input
             name="model"
-            placeholder="Model"
+            placeholder="Model Number"
             value={car.model}
             onChange={(e) => handleCarChange(index, e)}
             required

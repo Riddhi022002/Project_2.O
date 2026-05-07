@@ -1,0 +1,282 @@
+/* ========================= */
+/* 🔹 MOBILE FIRST DESIGN */
+/* ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.car-wash-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #0f172a;
+}
+
+/* 🔹 Card Layout */
+.car-wash-left,
+.car-wash-right {
+  width: 100%;
+}
+
+/* 🔹 Image */
+.car-wash-left img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* 🔹 Details Card */
+.car-wash-right {
+  background: white;
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.car-wash-right h2 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: #0f172a;
+}
+
+.car-wash-right p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.car-wash-right strong {
+  color: #111827;
+}
+
+/* 🔹 Book Button */
+.book-service-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-service-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* ========================= */
+/* 🔹 POPUP */
+/* ========================= */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.55);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+  padding: 16px;
+}
+
+.popup-box {
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: white;
+  border-radius: 22px;
+  padding: 22px;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+
+  animation: popupFade 0.25s ease;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-box h3 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: #111827;
+}
+
+/* 🔹 Sections */
+.section {
+  margin-bottom: 22px;
+}
+
+.section p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #111827;
+}
+
+/* 🔹 Radio Labels */
+.section label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px;
+  margin-bottom: 10px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  font-size: 14px;
+  color: #334155;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.section label:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+/* 🔹 Inputs */
+.section input[type="date"],
+.section select {
+  width: 100%;
+  margin-top: 8px;
+
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+
+  font-size: 14px;
+  outline: none;
+
+  background: white;
+}
+
+.section input[type="date"]:focus,
+.section select:focus {
+  border-color: #f97316;
+}
+
+/* 🔹 Add Car Button */
+.section button {
+  margin-top: 10px;
+  width: 100%;
+
+  border: none;
+  padding: 12px;
+
+  border-radius: 12px;
+  background: #0f172a;
+  color: white;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 🔹 Popup Actions */
+.popup-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.popup-actions button {
+  flex: 1;
+  padding: 13px;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* Cancel */
+.popup-actions button:first-child {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Confirm */
+.popup-actions button:last-child {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+}
+
+.popup-actions button:hover {
+  transform: translateY(-2px);
+}
+
+/* ========================= */
+/* 🔹 TABLET */
+/* ========================= */
+
+@media (min-width: 768px) {
+  .car-wash-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+
+    padding: 30px;
+  }
+
+  .car-wash-left,
+  .car-wash-right {
+    flex: 1;
+  }
+
+  .car-wash-left img {
+    height: 420px;
+  }
+
+  .car-wash-right {
+    margin-top: 0;
+    padding: 28px;
+  }
+
+  .car-wash-right h2 {
+    font-size: 28px;
+  }
+
+  .car-wash-right p {
+    font-size: 16px;
+  }
+}

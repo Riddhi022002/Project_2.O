@@ -10,7 +10,7 @@ const Footer = () => {
           <h2>CarServiceApp</h2>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links
         <ul className="footer-links">
           <li><a href="/about">About</a></li>
           <li><a href="/services">Services</a></li>
@@ -19,13 +19,13 @@ const Footer = () => {
         </ul>
 
         {/* Social Media Icons */}
-        <div className="footer-social">
+        {/* <div className="footer-social">
           <a href="#"><i className="fab fa-facebook"></i></a>
           <a href="#"><i className="fab fa-instagram"></i></a>
           <a href="#"><i className="fab fa-twitter"></i></a>
           <a href="#"><i className="fab fa-linkedin"></i></a>
-        </div>
-      </div>
+        </div> */}
+      </div> 
 
       {/* Copyright Section */}
       <div className="footer-bottom">

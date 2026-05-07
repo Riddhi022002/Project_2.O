@@ -28,3 +28,7 @@ footer {
   width: 100%;
   bottom: 0;
 }
+
+html, body {
+  overscroll-behavior-y: contain;
+}

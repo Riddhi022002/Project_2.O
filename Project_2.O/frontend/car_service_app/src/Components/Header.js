@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   const handleProfileClick = () => {
-    navigate('/profile');
+    navigate('/CustomerProfile');
   };
 
   const handleVoiceSearch = () => {

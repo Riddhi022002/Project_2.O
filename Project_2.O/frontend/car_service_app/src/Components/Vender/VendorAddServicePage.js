@@ -1,90 +1,191 @@
-import React, { useState } from 'react';
-import '../../StyleSheets/Vender/vendoraddservicepage.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const AddServiceForm = () => {
-  const [formData, setFormData] = useState({
-    VendorId:'',
-    service_name: '',
-    description: '',
-    price: '',
-    estimated_time: '',
+const VendorAddServices = () => {
+  const [services, setServices] = useState([]);
+  const [selectedServices, setSelectedServices] = useState([]);
+
+  const [showModal, setShowModal] = useState(false);
+  const [activeService, setActiveService] = useState(null);
+
+  const [serviceDetails, setServiceDetails] = useState({
+    price: "",
+    gst: "",
+    pickup_available: false,
+    home_service_available: false,
   });
 
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.VendorId) newErrors.category = 'Vendor ID is required';
-    if (!formData.service_name) newErrors.service_name = 'Service name is required';
-    if (!formData.description) newErrors.description = 'Description is required';
-    if (!formData.price || isNaN(formData.price)) newErrors.price = 'Valid price is required';
-    if (!formData.estimated_time) newErrors.estimated_time = 'Estimated time is required';
-    
-    return newErrors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setErrors({});
+  useEffect(() => {
+    const fetchServices = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/addService/addService', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        });
-
-        if (response.ok) {
-          setSubmitted(true);
-          setFormData({
-            VendorId:'',
-            service_name: '',
-            description: '',
-            price: '',
-            estimated_time: ''
-          });
-        } else {
-          const data = await response.json();
-          alert(data.error || 'Something went wrong');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Server error');
+        const res = await axios.get(
+          "http://localhost:5000/api/services/fetchservices",
+        );
+        setServices(res.data);
+      } catch (err) {
+        console.error(err);
       }
+    };
+
+    fetchServices();
+  }, []);
+
+  const handleServiceClick = (service) => {
+    setActiveService(service);
+    setShowModal(true);
+  };
+
+  const handleAddService = () => {
+    if (selectedServices.find((s) => s.service_id === activeService.id)) {
+      alert("Service already added");
+      return;
+    }
+    const newService = {
+      service_id: activeService.id,
+      name: activeService.name,
+      price: serviceDetails.price,
+      gst: serviceDetails.gst,
+      pickup_available: serviceDetails.pickup_available,
+      home_service_available: serviceDetails.home_service_available,
+    };
+
+    setSelectedServices([...selectedServices, newService]);
+
+    setShowModal(false);
+    setServiceDetails({
+      price: "",
+      gst: "",
+      pickup_available: false,
+      home_service_available: false,
+    });
+  };
+
+  const removeService = (index) => {
+    const updated = [...selectedServices];
+    updated.splice(index, 1);
+    setSelectedServices(updated);
+  };
+
+  const handleSave = async () => {
+    try {
+      await axios.post("http://localhost:5000/api/vendor/add-services", {
+        vendorId: 1, // ⚠️ replace with real logged-in vendor ID
+        services: selectedServices,
+      });
+
+      alert("Services added successfully");
+    } catch (err) {
+      console.error(err);
+      alert("Error saving services");
     }
   };
 
   return (
-    <form className="add-service-form" onSubmit={handleSubmit}>
-      <h2>Add New Service</h2>
+    <div>
+      <h2>Add Services</h2>
 
-      {submitted && <p className="success-msg">Service added successfully!</p>}
-
-      {Object.entries(formData).map(([field, value]) => (
-        <div className="form-group" key={field}>
-          <label>{field.replace('_', ' ').toUpperCase()}</label>
-          <input
-            type="text"
-            name={field}
-            value={value}
-            onChange={handleChange}
-            placeholder={`Enter ${field.replace('_', ' ')}`}
-          />
-          {errors[field] && <span className="error">{errors[field]}</span>}
+      {/* Selected Services */}
+      <h3>Selected Services</h3>
+      {selectedServices.map((service, index) => (
+        <div key={index}>
+          <p>{service.name}</p>
+          <p>Price: {service.price}</p>
+          <p>GST: {service.gst}</p>
+          <button onClick={() => removeService(index)}>Remove</button>
         </div>
       ))}
 
-      <button type="submit">Add Service</button>
-    </form>
+      {/* All Services */}
+      <h3>Available Services</h3>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        {services.map((service) => (
+          <button key={service.id} onClick={() => handleServiceClick(service)}>
+            {service.name}
+          </button>
+        ))}
+      </div>
+
+      <br />
+      <button onClick={handleSave}>Save Services</button>
+
+      {/* Modal */}
+      {showModal && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.5)",
+          }}
+        >
+          <div
+            style={{
+              background: "white",
+              padding: "20px",
+              margin: "100px auto",
+              width: "300px",
+            }}
+          >
+            <h3>{activeService?.name}</h3>
+
+            <input
+              placeholder="Price"
+              value={serviceDetails.price}
+              onChange={(e) =>
+                setServiceDetails({ ...serviceDetails, price: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="GST"
+              value={serviceDetails.gst}
+              onChange={(e) =>
+                setServiceDetails({ ...serviceDetails, gst: e.target.value })
+              }
+            />
+
+            <label>
+              <input
+                type="checkbox"
+                checked={serviceDetails.pickup_available}
+                onChange={(e) =>
+                  setServiceDetails({
+                    ...serviceDetails,
+                    pickup_available: e.target.checked,
+                  })
+                }
+              />
+              Pickup Available
+            </label>
+
+            <br />
+
+            <label>
+              <input
+                type="checkbox"
+                checked={serviceDetails.home_service_available}
+                onChange={(e) =>
+                  setServiceDetails({
+                    ...serviceDetails,
+                    home_service_available: e.target.checked,
+                  })
+                }
+              />
+              Home Service Available
+            </label>
+
+            <br />
+            <br />
+
+            <button onClick={handleAddService}>Done</button>
+            <button onClick={() => setShowModal(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default AddServiceForm;
+export default VendorAddServices;

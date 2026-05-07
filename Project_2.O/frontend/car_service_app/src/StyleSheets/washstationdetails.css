@@ -60,3 +60,66 @@
 .book-service-btn:hover {
     background: #d35400; /* Darker Orange */
 }
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+
+  align-items: flex-start; /* ✅ IMPORTANT */
+  overflow-y: auto;        /* ✅ allows scrolling */
+
+  padding: 20px 10px;      /* ✅ space from top */
+  z-index: 1000;
+}
+
+.popup-box {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 12px;
+
+  max-height: 90vh;        /* ✅ prevent overflow */
+  overflow-y: auto;        /* ✅ scroll inside popup */
+
+  margin-top: 20px;        /* ✅ breathing space */
+}
+.section {
+  margin: 15px 0;
+}
+
+.section label {
+  display: block;
+  margin: 5px 0;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.section input[type="date"],
+.section select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

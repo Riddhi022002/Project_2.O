@@ -31,4 +31,14 @@ const vendorLogin = async (phonenumber) => {
     return rows;
 };
 
-module.exports = { createVendor, vendorLogin };
+const fetchVendors = async () => {
+
+    const [rows] = await db.execute(
+      "SELECT * FROM VENDOR WHERE ISVERIFIED=1 AND ISACTIVE=1"
+    );
+
+    return rows;
+};
+
+
+module.exports = { createVendor, vendorLogin, fetchVendors };

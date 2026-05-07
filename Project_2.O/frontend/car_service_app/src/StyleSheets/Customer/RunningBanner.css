@@ -1,0 +1,22 @@
+.banner-container {
+  height: 120px;
+  border-radius: 20px;
+  /* background-color: orange; */
+  /* background: linear-gradient(135deg, #4facfe, #00f2fe); */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.text {
+  font-size: 30px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+.car-image {
+  width: 130px;
+  border-radius: 10px;
+}
