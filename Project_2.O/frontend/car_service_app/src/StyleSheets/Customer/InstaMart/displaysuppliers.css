@@ -11,14 +11,16 @@
   margin-bottom: 12px;
 }
 
-/* 🔥 2-column grid */
+/* 🔥 FIXED GRID */
 .suppliers-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
+  /* ❌ removed scroll lock */
+  /* max-height: calc(100vh - 140px); */
+  /* overflow-y: auto; */
+
   padding-bottom: 10px;
 }
 

@@ -35,7 +35,7 @@ body {
 
   /* IMPORTANT FIX */
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Top register link */

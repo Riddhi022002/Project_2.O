@@ -32,10 +32,10 @@ footer {
 /* html, body {
   overscroll-behavior-y: contain;
 } */
- 
+
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   width: 100%;
 }

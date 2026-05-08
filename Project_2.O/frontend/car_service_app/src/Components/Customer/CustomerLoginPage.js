@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "../../StyleSheets/SharedCSS/login.css"
-import "../../StyleSheets/Customer/CustomerLogin.css";
+import "../../StyleSheets/SharedCSS/login.css"
 
 const CustomerLogin = () => {
   const navigate = useNavigate();
