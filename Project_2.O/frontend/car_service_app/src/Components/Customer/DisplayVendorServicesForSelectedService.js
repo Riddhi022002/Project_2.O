@@ -18,6 +18,7 @@ const DisplayVendorServicesForSelectedService = () => {
         `http://localhost:5000/api/vendor/vendorsServicesByService/${serviceId}`
       );
       setVendors(res.data);
+      console.log('services:',res.data)
     } catch (err) {
       console.error("Error fetching vendors:", err);
     }
@@ -42,9 +43,9 @@ const DisplayVendorServicesForSelectedService = () => {
         ) : (
           vendors.map((vendor) => (
             <div
-              key={vendor.VENDORID}
+              key={vendor.vendor?.vendorid}
               className="car-wash-card"
-              onClick={() => navigate(`/VendorService/${vendor.VENDORSERVICEID}`)}
+              onClick={() => navigate(`/VendorService/${vendor.vendorserviceid}`)}
             >
               <img
                 src="/assets/washingcarstation.jpg"
@@ -54,15 +55,15 @@ const DisplayVendorServicesForSelectedService = () => {
 
               <div className="car-wash-info">
                 <h3 className="car-wash-name">
-                  {vendor.BUSINESSNAME}
+                  {vendor.vendor?.businessname}
                 </h3>
 
                 <p className="car-wash-location">
-                  📍 {vendor.CITY}
+                  📍 {vendor.vendor?.city}
                 </p>
 
                 <div className="car-wash-meta">
-                  <span>⭐ {vendor.rating || "N/A"}</span>
+                  <span>⭐ {vendor.rating || "4.8"}</span>
                   <span>⏳ {vendor.estimated_time || 30} mins</span>
                 </div>
               </div>

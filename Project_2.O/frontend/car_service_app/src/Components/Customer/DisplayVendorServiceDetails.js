@@ -60,7 +60,7 @@ const VendorServiceDetails = () => {
       //   `http://localhost:5000/api/customer/getCarsByCustomerId/${customerId}`,
       // );
       const res = await axios.get(
-        `http://localhost:5000/api/customer/getCarsByCustomerId/${6}`,
+        `http://localhost:5000/api/customer/getCarsByCustomerId/${1}`,
       );
 
       setCars(res.data);
@@ -82,7 +82,7 @@ const VendorServiceDetails = () => {
       const bookingData = {
         customerId,
         carId: selectedCar,
-        vendorServiceId: vendorService.VENDORSERVICEID,
+        vendorServiceId: vendorService.vendorserviceid,
         serviceType,
         date: selectedDate,
         timeSlot,
@@ -113,14 +113,14 @@ const VendorServiceDetails = () => {
       </div>
 
       <div className="car-wash-right">
-        <h2>{vendorService.SERVICENAME}</h2>
+        <h2>{vendorService.service?.servicename}</h2>
 
         {/* <p>
           <strong>ID:</strong> {vendorService.VENDORSERVICEID}
         </p> */}
 
         <p>
-          <strong>Price:</strong> ₹{vendorService.PRICE}
+          <strong>Price:</strong> ₹{vendorService.price}
         </p>
 
         <p>
@@ -153,15 +153,15 @@ const VendorServiceDetails = () => {
                 </>
               ) : (
                 cars.map((car) => (
-                  <label key={car.VEHICLEID}>
+                  <label key={car.vehicleid}>
                     <input
                       type="radio"
                       name="car"
-                      value={car.VEHICLEID}
+                      value={car.vehicleid}
                       onChange={(e) => setSelectedCar(e.target.value)}
                     />
-                    {car.VEHICLEBRANDNAME} {car.VEHICLEMODELNAME} (
-                    {car.VEHICLEREGISTRATIONNUMBER})
+                     {car.vehiclebrandname} {car.vehiclemodelname} (
+                    {car.vehicleregistrationnumber})
                   </label>
                 ))
               )}

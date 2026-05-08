@@ -21,7 +21,8 @@ const VendorDetails = () => {
         `http://localhost:5000/api/vendor/VendorById/${vendorId}`,
       );
 
-      setVendor(res.data[0]);
+      setVendor(res.data);
+      console.log('testing:'.res.data);
     } catch (err) {
       console.error("Error fetching vendor details:", err);
     }
@@ -34,15 +35,15 @@ const VendorDetails = () => {
       );
 
       setServices(res.data);
-      console.log(res.data);
+      console.log('vendordetails:',res.data);
     } catch (err) {
       console.error("Error fetching vendor services:", err);
     }
   };
 
   const handleServiceClick = (service) => {
-    console.log("ID",service.VENDORSERVICEID);
-    navigate(`/VendorService/${service.VENDORSERVICEID}`);
+    console.log("ID",service.vendorserviceid);
+    navigate(`/VendorService/${service.vendorserviceid}`);
   };
 
   if (!vendor) return <p className="loading-text">Loading...</p>;
@@ -65,13 +66,13 @@ const VendorDetails = () => {
         </div>
 
         <div className="vendor-info">
-          <h2>{vendor.BUSINESSNAME}</h2>
+          <h2>{vendor.businessname}</h2>
 
           <p className="vendor-location">
-            📍 {vendor.CITY}, {vendor.STATE}
+            📍 {vendor.city}, {vendor.state}
           </p>
 
-          <p className="vendor-phone">📞 {vendor.PHONENUMBER}</p>
+          <p className="vendor-phone">📞 {vendor.phonenumber}</p>
 
           <div className="vendor-badges">
             <span>✔ Verified</span>
@@ -100,18 +101,18 @@ const VendorDetails = () => {
         <div className="services-grid">
           {services.map((service) => (
             <div
-              key={service.VENDORSERVICEID}
+              key={service.vendorserviceid}
               className="service-card"
               onClick={() => handleServiceClick(service)}
             >
               <div className="service-top">
-                <h4>{service.SERVICENAME}</h4>
+                <h4>{service.service?.servicename}</h4>
 
-                <span className="price">₹ {service.PRICE}</span>
+                <span className="price">₹ {service.price}</span>
               </div>
 
               <p className="service-description">
-                {service.SERVICEDESCRIPTION}
+                {service.service?.servicedescription}
               </p>
 
               <button

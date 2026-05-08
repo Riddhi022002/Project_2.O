@@ -21,9 +21,9 @@ const CustomerProfile = () => {
   const fetchCustomerDetails = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/customer/getCustomerById/${6}`,
+        `http://localhost:5000/api/customer/getCustomerById/${1}`,
       );
-      setCustomer(res.data[0]);
+      setCustomer(res.data);
       console.log("customer", res.data);
     } catch (err) {
       console.error("Error fetching customer:", err);
@@ -33,7 +33,7 @@ const CustomerProfile = () => {
   const fetchCustomerCars = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/customer/getCarsByCustomerId/${6}`,
+        `http://localhost:5000/api/customer/getCarsByCustomerId/${1}`,
       );
       setCars(res.data);
     } catch (err) {
@@ -66,9 +66,9 @@ const CustomerProfile = () => {
           <div className="profile-top">
             {/* 🔹 Customer Info */}
             <div className="profile-info">
-              <h3>{customer.FULLNAME}</h3>
-              <p>{customer.EMAIL}</p>
-              <p>{customer.PHONENUMBER}</p>
+              <h3>{customer.fullname}</h3>
+              <p>{customer.email}</p>
+              <p>{customer.phonenumber}</p>
             </div>
 
             {/* ✏️ Edit Button */}
@@ -90,10 +90,10 @@ const CustomerProfile = () => {
           <div key={index} className="car-card">
             <p>
               <strong>
-                {car.VEHICLEBRANDNAME} {car.VEHICLEMODELNAME}
+                {car.vehiclebrandname} {car.vehiclemodelname}
               </strong>
             </p>
-            <p>{car.VEHICLEREGISTRATIONNUMBER}</p>
+            <p>{car.vehicleregistrationnumber}</p>
           </div>
         ))}
 

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -62,8 +65,10 @@ const Signup = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/api/auth/customer/register", payload);
+     const res = await axios.post("http://localhost:5000/api/auth/customer/register", payload);
       alert("Registration Successful!");
+      localStorage.setItem("customerId", res.data.customerid);
+      navigate("/CustomerHomePage");
     } catch (err) {
       console.error(err);
       alert("Error");

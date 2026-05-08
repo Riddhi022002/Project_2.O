@@ -70,6 +70,8 @@ const getVendorById = async (req, res) => {
   .eq("vendorid", VendorId)
   .single();
 
+  console.log(data);
+
 res.json(data);
   } catch (error) {
     console.error("Error fetching details of the selected Vendor:", error);

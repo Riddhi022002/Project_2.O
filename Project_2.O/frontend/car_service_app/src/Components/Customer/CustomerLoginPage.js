@@ -24,7 +24,7 @@ const CustomerLogin = () => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/customer/login", formData);
       console.log(res.data);
-     localStorage.setItem("customerId", res.data.CUSTOMERID);
+     localStorage.setItem("customerId", res.data.customerid);
       // after login
       navigate("/CustomerHomePage");
     } catch (err) {
