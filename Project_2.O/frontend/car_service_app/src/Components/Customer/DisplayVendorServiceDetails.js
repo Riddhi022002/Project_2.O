@@ -60,7 +60,7 @@ const VendorServiceDetails = () => {
       //   `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${customerId}`,
       // );
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${1}`,
+        `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${customerId}`,
       );
 
       setCars(res.data);

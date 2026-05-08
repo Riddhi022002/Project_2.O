@@ -99,17 +99,18 @@ const registerVendor = async (req, res) => {
 
 const loginCustomer = async (req, res) => {
   try {
-    console.log(req.body);
     const { email, password } = req.body;
 
     // 1. Check if customer exists
     const rows = await customerLogin(email);
+    console.log('data',rows);
+
 
     if (rows.length === 0) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    const customer = rows[0];
+    const customer = rows;
 
     // 2. Compare password
     if (password !== customer.passwordhash) {

@@ -31,6 +31,7 @@ const customerLogin = async (email) => {
     .eq("email", email)
     .single();
 
+    console.log(data);
   return data;
 };
 

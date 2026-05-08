@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../StyleSheets/Customer/CustomerLogin.css";
+import "../../StyleSheets/SharedCSS/login.css"
 
 const CustomerLogin = () => {
   const navigate = useNavigate();
@@ -23,8 +23,7 @@ const CustomerLogin = () => {
 
     try {
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/customer/login`, formData);
-      console.log(res.data);
-     localStorage.setItem("customerId", res.data.customerid);
+     localStorage.setItem("customerId", res.data.customer.id);
       // after login
       navigate("/CustomerHomePage");
     } catch (err) {
@@ -38,12 +37,12 @@ const CustomerLogin = () => {
       <div className="login-box">
 
         {/* Register Link */}
-        <div className="top-link">
+        {/* <div className="top-link">
           <span>New here? </span>
           <button onClick={() => navigate("/CustomerRegistrationPage")}>
             Register
           </button>
-        </div>
+        </div> */}
 
         <h2>Customer Login</h2>
 

@@ -22,7 +22,7 @@ const CustomerProfile = () => {
   const fetchCustomerDetails = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/customer/getCustomerById/${1}`,
+        `${process.env.REACT_APP_API_URL}/api/customer/getCustomerById/${customerId}`,
       );
       setCustomer(res.data);
       console.log("customer", res.data);
@@ -34,7 +34,7 @@ const CustomerProfile = () => {
   const fetchCustomerCars = async () => {
     try {
       const res = await axios.get(
-       `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${1}`,
+       `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${customerId}`,
       );
       setCars(res.data);
     } catch (err) {
