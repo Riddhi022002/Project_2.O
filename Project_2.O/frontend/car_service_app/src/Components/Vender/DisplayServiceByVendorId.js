@@ -43,7 +43,7 @@ const VendorServiceList = ({ vendorId }) => {
     const fetchServices = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/services/getVendorServices/${3}`
+          `${process.env.REACT_APP_API_URL}/api/services/getVendorServices/${3}`
         );
         if (!response.ok) throw new Error('Failed to fetch services');
         const data = await response.json();

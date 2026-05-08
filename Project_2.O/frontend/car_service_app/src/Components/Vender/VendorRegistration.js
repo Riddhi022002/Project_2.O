@@ -35,7 +35,7 @@ const [serviceDetails, setServiceDetails] = useState({
 useEffect(() => {
   const fetchServices = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/services/fetchservices");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/services/fetchservices`);
       setServices(res.data);
     } catch (err) {
       console.error(err);
@@ -66,7 +66,7 @@ useEffect(() => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/vendor/register", payload);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/vendor/register`, payload);
       alert("Registration Successful!");
     } catch (err) {
       console.error(err);

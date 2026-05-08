@@ -19,7 +19,7 @@ const VendorAddServices = () => {
     const fetchServices = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/services/fetchservices",
+          `${process.env.REACT_APP_API_URL}/api/services/fetchservices`,
         );
         setServices(res.data);
       } catch (err) {
@@ -68,7 +68,7 @@ const VendorAddServices = () => {
 
   const handleSave = async () => {
     try {
-      await axios.post("http://localhost:5000/api/vendor/add-services", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/vendor/add-services`, {
         vendorId: 1, // ⚠️ replace with real logged-in vendor ID
         services: selectedServices,
       });

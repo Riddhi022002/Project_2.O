@@ -12,6 +12,7 @@ const CustomerProfile = () => {
   const [cars, setCars] = useState([]);
 
   const customerId = localStorage.getItem("customerId");
+  console.log('CustomerID from local storage:',customerId);
 
   useEffect(() => {
     fetchCustomerDetails();
@@ -21,7 +22,7 @@ const CustomerProfile = () => {
   const fetchCustomerDetails = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/customer/getCustomerById/${1}`,
+        `${process.env.REACT_APP_API_URL}/api/customer/getCustomerById/${1}`,
       );
       setCustomer(res.data);
       console.log("customer", res.data);
@@ -33,7 +34,7 @@ const CustomerProfile = () => {
   const fetchCustomerCars = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/customer/getCarsByCustomerId/${1}`,
+       `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${1}`,
       );
       setCars(res.data);
     } catch (err) {

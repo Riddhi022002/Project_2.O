@@ -15,7 +15,7 @@ const DisplayVendorServicesForSelectedService = () => {
   const fetchVendors = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/vendor/vendorsServicesByService/${serviceId}`
+        `${process.env.REACT_APP_API_URL}/api/vendor/vendorsServicesByService/${serviceId}`
       );
       setVendors(res.data);
       console.log('services:',res.data)

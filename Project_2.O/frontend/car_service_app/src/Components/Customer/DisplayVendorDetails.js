@@ -18,7 +18,7 @@ const VendorDetails = () => {
   const fetchVendorDetails = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/vendor/VendorById/${vendorId}`,
+        `${process.env.REACT_APP_API_URL}/api/vendor/VendorById/${vendorId}`,
       );
 
       setVendor(res.data);
@@ -31,7 +31,7 @@ const VendorDetails = () => {
   const fetchVendorServices = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/vendor/VendorServicesByVendorId/${vendorId}`,
+        `${process.env.REACT_APP_API_URL}/api/vendor/VendorServicesByVendorId/${vendorId}`,
       );
 
       setServices(res.data);

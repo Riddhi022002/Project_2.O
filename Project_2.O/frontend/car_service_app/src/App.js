@@ -46,10 +46,10 @@ function App() {
               {/* <VendorSignup /> */}
               {/* <Login/> */}
               {/* <LandingPage/> */}
-              {/* <CustomerLogin/> */}
+              <CustomerLogin/>
               {/* <VendorLogin/> */}
               {/* <VendorHomePage/> */}
-              <CustomerHome/>
+              {/* <CustomerHome/> */}
               
             </>
           }

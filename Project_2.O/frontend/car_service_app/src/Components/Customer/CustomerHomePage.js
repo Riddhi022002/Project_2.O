@@ -16,7 +16,7 @@ import "../../StyleSheets/herosection.css";
 
 const CustomerHome = () => {
   const [active, setActive] = useState("services");
-
+  console.log("ENV:", process.env.REACT_APP_API_URL);
   return (
     <div>
       <HeroSection />

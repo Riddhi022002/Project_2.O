@@ -9,7 +9,7 @@ const VendorList = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/vendor/getAllVendors")
+            .get(`${process.env.REACT_APP_API_URL}/api/vendor/getAllVendors`)
             .then((res) => {
                 setVendors(res.data);
                 console.log(res.data);

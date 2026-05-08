@@ -26,7 +26,7 @@ const VendorServiceDetails = () => {
     const fetchVendorService = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/vendor/vendorServiceById/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/vendor/vendorServiceById/${id}`,
         );
 
         if (res.data.length > 0) {
@@ -57,10 +57,10 @@ const VendorServiceDetails = () => {
     try {
       const customerId = localStorage.getItem("customerId");
       // const res = await axios.get(
-      //   `http://localhost:5000/api/customer/getCarsByCustomerId/${customerId}`,
+      //   `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${customerId}`,
       // );
       const res = await axios.get(
-        `http://localhost:5000/api/customer/getCarsByCustomerId/${1}`,
+        `${process.env.REACT_APP_API_URL}/api/customer/getCarsByCustomerId/${1}`,
       );
 
       setCars(res.data);
@@ -91,7 +91,7 @@ const VendorServiceDetails = () => {
       console.log("Sending Booking:", bookingData);
 
       // await axios.post(
-      //   "http://localhost:5000/api/customer/bookService",
+      //   `${process.env.REACT_APP_API_URL}/api/customer/bookService",
       //   bookingData
       // );
 

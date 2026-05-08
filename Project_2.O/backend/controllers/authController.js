@@ -112,7 +112,7 @@ const loginCustomer = async (req, res) => {
     const customer = rows[0];
 
     // 2. Compare password
-    if (password !== customer.PASSWORDHASH) {
+    if (password !== customer.passwordhash) {
   return res.status(401).json({ message: "Invalid email or password" });
 }
 
@@ -120,9 +120,9 @@ const loginCustomer = async (req, res) => {
     res.status(200).json({
       message: "Login successful",
       customer: {
-        id: customer.CUSTOMERID,
-        name: customer.FULLNAME,
-        email: customer.EMAIL,
+        id: customer.customerid,
+        name: customer.fullname,
+        email: customer.email,
       },
     });
 
@@ -147,12 +147,12 @@ const loginVendor = async (req, res) => {
     const vendor = rows[0];
 
     // 2. Compare password
-    if (password !== vendor.PASSWORDHASH) {
+    if (password !== vendor.passwordhash) {
   return res.status(401).json({ message: "Invalid phone or password" });
 }
 
     // 3. check is the vendor is verified
-    if (vendor.ISVERIFIED!==1) {
+    if (vendor.isverified!==1) {
   return res.status(403).json({ message: "This vendor account is not verified, Application is under progress." });
 }
 
@@ -160,9 +160,9 @@ const loginVendor = async (req, res) => {
     res.status(200).json({
       message: "Login successful",
       vendor: {
-        id: vendor.VENDORID,
-        name: vendor.BUSINESSNAME,
-        phonenumber: vendor.PHONENUMBER,
+        id: vendor.vendorid,
+        name: vendor.businessname,
+        phonenumber: vendor.phonenumber,
       },
     });
 

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,7 +64,7 @@ const Signup = () => {
     };
 
     try {
-     const res = await axios.post("http://localhost:5000/api/auth/customer/register", payload);
+     const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/customer/register`, payload);
       alert("Registration Successful!");
       localStorage.setItem("customerId", res.data.customerid);
       navigate("/CustomerHomePage");

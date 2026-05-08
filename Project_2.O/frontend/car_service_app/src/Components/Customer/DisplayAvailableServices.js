@@ -16,7 +16,7 @@ const ServiceList = () => {
   const fetchServices = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/services/fetchservices",
+       `${process.env.REACT_APP_API_URL}/api/services/fetchservices`,
       );
       setServices(res.data);
     } catch (error) {
